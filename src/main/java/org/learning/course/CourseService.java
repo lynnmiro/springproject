@@ -14,9 +14,9 @@ public class CourseService {
     private CourseRepository courseRepository;
 
 
-    public List<Course> getAllCourses(){
+    public List<Course> getAllCourses(String topicId){
         List<Course> courses = new ArrayList<>();
-        Iterable<Course> itr = courseRepository.findAll();
+        Iterable<Course> itr = courseRepository.findByTopicId(topicId);
         for (Course course : itr){
             courses.add(course);
         }
